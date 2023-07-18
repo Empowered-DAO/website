@@ -1,10 +1,11 @@
 ---
 draft: false
-name: "Janette Lynch"
-title: "Senior Director"
+name: "What About You?"
+title: "Delegate"
+address: ""
 avatar: {
-    src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?&fit=crop&w=280",
-    alt: "Janette Lynch"
+    src: "https://bafkreibkpox3bjw56aji5c63u3sh6wtdh7asi5knvx574i2r3tencryloa.ipfs.nftstorage.link/",
+    alt: "Delegate"
 }
 publishDate: "2022-11-07 15:39"
 ---

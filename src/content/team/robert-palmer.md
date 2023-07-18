@@ -1,10 +1,11 @@
 ---
 draft: false
-name: "Robert Palmer"
-title: "Marketing Engineer"
+name: "Who do you think?"
+title: "Delegate"
+address: ""
 avatar: {
-    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?&fit=crop&w=280",
-    alt: "Robert Palmer"
+    src: "https://bafkreibkpox3bjw56aji5c63u3sh6wtdh7asi5knvx574i2r3tencryloa.ipfs.nftstorage.link/",
+    alt: "Delegate"
 }
 publishDate: "2022-11-09 15:39"
 ---

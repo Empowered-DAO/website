@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Delegates</Fragment>
+      <Fragment slot="desc">Meet Your Delegates: Making Your Vote Count in Our Community!</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Your delegates are here to help you!
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        Your delegates are your trusted representatives within our community. 
+        They are here to ensure that your voice is heard and your interests are well-represented in all governance matters. 
+        Whether it's voting on proposals, shaping the future of our DAO, or addressing your concerns, our dedicated delegates 
+        are committed to serving your needs. Feel free to engage with them, ask questions, and collaborate to make a lasting 
+        impact together. Empower your vote and let our delegates be your advocates in building a stronger and more vibrant 
+        community!
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
+      {
+        publishedTeamMembers.map((teamMemberEntry) => (
+          <div class="group">
+            <div class="w-full aspect-square">
+              <Picture
+                src={teamMemberEntry.data.avatar.src}
+                alt={teamMemberEntry.data.avatar.alt}
+                sizes="(max-width: 800px) 100vw, 400px"
+                widths={[200, 400]}
+                aspectRatio="1:1"
+                background="#ffffff"
+                fit="cover"
+                position="center"
+                class="w-full rounded-md rounded "
+              />
+            </div>
+
+            <div class="mt-4 text-center">
+              <h2 class="text-lg text-gray-800">
+                {teamMemberEntry.data.name}
+              </h2>
+              <h3 class="text-sm text-slate-500">
+                {teamMemberEntry.data.title}
+              </h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Layout>
