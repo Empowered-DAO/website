@@ -1,0 +1,93 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="How It Works">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">How It Works</Fragment>
+      <Fragment slot="desc">Learn How Empowered DAO Governance Works</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-4">
+      <p class="mb-4 mt-8">
+        We have implemented OpenZeppelin Governor - a governance model of delegated voting. 
+        With the delegated governance model implemented, token holders can vote on proposals or delegate their voting power to 
+        other members of the community to vote on their behalf.
+      </p>
+      <h2 class="font-bold text-2xl text-gray-800">Governance Parameters*</h2>
+      <ul>
+        <li>Proposal threshold: 50K</li>
+        <li>Quorum needed: 1M</li>
+        <li>Voting period: 7 days</li>
+        <li>Proposal delay: 48hrs</li>
+      </ul>
+      <p>
+        <i>*These parameters can be changed by the community through a governance proposal.</i>
+      </p>
+      <h2 class="font-bold text-2xl text-gray-800 mt-6">Overview</h2>
+      <p>
+        We've set up our on-chain governance application on Tally. Empowered DAO uses on-chain governace to enable EPWR token
+        holders to make decisions and implement them.<br />
+      </p>
+      <p class="font-bold">The word delegate can be confusing, so let's clarify what a delegate is.</p>
+      <p>
+        Delegates are token holders that have completed a one-time setup process. Once you become a delegate, you can vote on 
+        active proposals, and create proposals if you have enough voting power. If you choose not to directly vote on proposals, 
+        you can pass your voting power on to a delegate as we will explain further below.
+      </p>
+      <p>
+        Empowered uses the Tally governance application to manage the governance process. Through Tally, you can set up your 
+        wallet to become a delegate, create on-chain proposals, vote on active proposals, discover delegates in the community, 
+        and delegate your voting power to a community member.
+      </p>
+      <p>
+        Delegates will have complete control over the Empowered DAO treasury. Delegates can also change governance parameters 
+        such as quorum, proposal threshold, voting duration, etc. Further control will be given to delegates as the DAO grows
+        and we implement more features.
+      </p>
+      <p class="font-bold">If you wish to have a say in governance, you need to delegate your vote to self or someone in the community.</p>
+      <h2 class="font-bold text-2xl text-gray-800 mt-6">Becoming a delegate</h2>
+      <p class="font-bold">To become a delegate, you need to complete a one-time setup process.</p>
+      <p>You can choose to self delegate or delegate to someone else.</p>
+      <h3 class="font-bold text-gray-800">Delegate to self.</h3>
+      <p>By delegating to self, you retain your voting power. Next time there is an active proposal, you can choose to vote in 
+        any way you choose. There are 4 easy steps to setting yourself up as a delegate. </p>
+      <ol class="text-gray-600">
+        <li>Step 1: Visit Empowered DAO Governance page and connect your wallet.</li>
+        <li>Step 2: Click on "Delegate vote".</li>
+        <li>Step 3: Click on "Delegate to self".</li>
+        <li>Step 4: Confirm the transaction in your wallet.</li>
+      </ol>
+      <h3 class="font-bold text-gray-800">Delegating to someone else.</h3>
+      <p>You might prefer to trust a community member with their voting power. That's either because you don't want to incur a 
+        transaction fee every time you vote, or you don't have strong opinions about proposals and choose to defer voting.</p>
+      <p>When you delegate your voting power to someone else, you are voting by a proxy — They will vote on your behalf.</p>
+      <ul class="ml-6">
+        <li class="list-disc">When you delegate, your EPWR tokens stay in your wallet. You are only delegating your voting power.</li>
+        <li class="list-disc">You can always change the delegate or delegate back to yourself</li>
+      </ul>
+      <ol class="text-gray-600">
+        <li>Step 1:  Decide on the delegate that will represent you.</li>
+        <li>Step 2: Visit Empowered DAO Governance page and connect your wallet.</li>
+        <li>Step 3: Click on "Delegate vote".</li>
+        <li>Step 4: Choose "Delegate to an address, enter a wallet address".</li>
+        <li>Step 5: Confirm the transaction in your wallet.</li>
+      </ol>
+      <h2 class="font-bold text-2xl text-gray-800 mt-6">Voting on future proposals</h2>
+      <p>Now you are a delegate, you can participate in governance. It's important to note that you are voting power will only 
+        be tallied on proposals that have been created after you became a delegate.</p>
+    </div>
+
+    
+  </Container>
+</Layout>
