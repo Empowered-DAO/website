@@ -31,12 +31,21 @@ import { Icon } from "astro-icon";
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
       <Link
-        href="#"
+        size="lg"
+        rel="noopener"
+        href="https://www.patreon.com/empowereddao"
+        class="flex gap-1 items-center justify-center"
+        target="_blank">
+        <Icon class="text-white w-4 h-4" name="bx:bxl-patreon" />
+        Support Us On Patreon
+      </Link>
+      <Link
         href="https://twitter.com/EmpoweredDAO"
+        style="outline"
         target="_blank"
         class="flex gap-1 items-center justify-center"
         rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxl-twitter" />
+        <Icon class="text-black w-4 h-4" name="bx:bxl-twitter" />
         Follow Us On Twitter
       </Link>
       <Link
@@ -48,16 +57,6 @@ import { Icon } from "astro-icon";
         target="_blank">
         <Icon class="text-black w-4 h-4" name="bx:bxl-discord" />
         Join Us On Discord
-      </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://www.patreon.com/empowereddao"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-patreon" />
-        Support Us On Patreon
       </Link>
     </div>
   </div>
